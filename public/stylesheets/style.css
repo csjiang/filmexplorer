@@ -1,7 +1,6 @@
 html,
 body {
   height: 100%;
-  /* The html and body elements cannot have any padding or margin. */
 }
 
 /* Wrapper for page content to push down footer */
@@ -43,23 +42,4 @@ code {
 
 .inline-img {
   display: inline;
-}
-
-.tweetbox {
-  padding: 7px;
-}
-
-.tweetbox img {
-  float: left;
-  height: 48px;
-  width: 48px;
-  content:url("http://lorempixel.com/48/48");
-}
-.content {
-  margin-left: 60px;
-}
-.content .by {
-  font-weight: bold;
-  margin-top: -5px;
-  margin-bottom: -5px;
 }

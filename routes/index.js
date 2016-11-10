@@ -19,6 +19,7 @@ router.get('/result/:name', function(req, res) {
 	});
 });
 
+//in-progress
 router.get('/result/?genre=', function(req, res) {
 	filmBank.find(req.query.genre).then(function(result) {
 		res.render('index', {movies: result});
@@ -30,16 +31,3 @@ router.post('/result', function(req, res) {
 });
 
 module.exports = router;
-
-// SELECT * 
-// FROM (SELECT * FROM movies WHERE name LIKE "%spiderman%") movie
-// 	INNER JOIN roles ON roles.movie_id = movie.id 
-// 	INNER JOIN actors ON actor_id = actors.id 
-// GROUP BY name
-
-// SELECT (first_name || ' ' || last_name) as actor_name, role, name, year, rank FROM actors 
-// 	LEFT OUTER JOIN roles ON actor_id = actors.id
-// 		LEFT OUTER JOIN movies ON movies.id = movie_id
-// 		WHERE name LIKE '%spiderman%'
-// 	LEFT OUTER JOIN roles ON roles.movie_id = matchmovie.id
-// 	LEFT OUTER JOIN actors ON actor_id = actors.id

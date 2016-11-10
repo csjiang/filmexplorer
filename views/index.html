@@ -21,7 +21,7 @@
         <input type="submit" value="Submit" />
       </form>
 
-<!--       <form action="/search" method="POST">
+<!-- Addtl form for genre search?      <form action="/search" method="POST">
         <label for="name_field">Search for a genre</label>
         <input name="name" type="text" id="name_field" />
         <input type="submit" value="Submit" />
@@ -37,31 +37,8 @@
           <li>Genre: <a href= '/result/?genre='+ {{movie.name}}> {{movie.name}} </a></li>
         </ul>
 
-        <!-- <div class='tweetbox'>
-	      	<img class='inline-img'>
-	      		<div class='content'>
-		      		<div class='by'>
-				  		<h5><a href="/users/{{tweet.name}}">{{tweet.name}}</a></h5>
-				  	</div>
-				  	<ul class='list-unstyled'>
-			        	<li><a href="/tweets/{{tweet.id}}">{{tweet.content}}</a></li>
-		        	</ul>
-		        	<a href="#">Re-tweet</a>
-	        	</div>
-        </div> -->
       {% endfor %}
 
-  <!-- {% if showForm %}
-  <form action="/search" method="POST">
-    <label for="name_field">Movie Name</label>
-    <input name="name" type="text" id="name_field" />
-
-    <label for="text_field">Text:</label>
-    <input name="text" type="text" id="text_field" style="width: 350px;" />
-
-    <input type="submit" value="Submit" />
-  </form>
-	{% endif %} -->
     </div>
   </div>
 
