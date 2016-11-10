@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <div class="page-header">
+    <h1>Welcome to Film Explorer!</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+<!--       <img src="#"><br>
+      <b>Your Name</b><br>
+      100 followers -->
+    </div>
+    <div class="col-md-9">
+
+    <h3>Search for a film!</h3>
+
+    <form action="/search" method="POST">
+        <label for="name_field">Movie Name</label>
+        <input name="name" type="text" id="name_field" />
+        <input type="submit" value="Submit" />
+      </form>
+
+<!--       <form action="/search" method="POST">
+        <label for="name_field">Search for a genre</label>
+        <input name="name" type="text" id="name_field" />
+        <input type="submit" value="Submit" />
+      </form> -->
+
+      <!-- display tweets here -->
+      {% for movie in movies %}
+        <ul>
+          <li>Name: {{movie.name}}</li>
+          <li>Year: {{movie.year}}</li>
+          <li>ID: {{movie.ID}}</li>
+          <li>Rank: {{movie.rank}}</li>
+          <li>Genre: <a href= '/result/?genre='+ {{movie.name}}> {{movie.name}} </a></li>
+        </ul>
+
+        <!-- <div class='tweetbox'>
+	      	<img class='inline-img'>
+	      		<div class='content'>
+		      		<div class='by'>
+				  		<h5><a href="/users/{{tweet.name}}">{{tweet.name}}</a></h5>
+				  	</div>
+				  	<ul class='list-unstyled'>
+			        	<li><a href="/tweets/{{tweet.id}}">{{tweet.content}}</a></li>
+		        	</ul>
+		        	<a href="#">Re-tweet</a>
+	        	</div>
+        </div> -->
+      {% endfor %}
+
+  <!-- {% if showForm %}
+  <form action="/search" method="POST">
+    <label for="name_field">Movie Name</label>
+    <input name="name" type="text" id="name_field" />
+
+    <label for="text_field">Text:</label>
+    <input name="text" type="text" id="text_field" style="width: 350px;" />
+
+    <input type="submit" value="Submit" />
+  </form>
+	{% endif %} -->
+    </div>
+  </div>
+
+{% endblock %}
