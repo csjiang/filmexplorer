@@ -30,11 +30,12 @@
       <!-- display tweets here -->
       {% for movie in movies %}
         <ul>
-          <li>Name: {{movie.name}}</li>
-          <li>Year: {{movie.year}}</li>
-          <li>ID: {{movie.ID}}</li>
-          <li>Rank: {{movie.rank}}</li>
-          <li>Genre: <a href= '/result/?genre='+ {{movie.name}}> {{movie.name}} </a></li>
+          <img src = {{movie.poster}}>
+          <li>Name: <a href='/result/?film={{movie.title}}'><b>{{movie.title}}</b></a></li>
+          <li>Year: <a href='/result/?year={{movie.year}}'>{{movie.year}}</a></li>
+<!--           <li>ID: {{movie.ID}}</li> -->
+          <!-- <li>Rating: {{movie.rated}}</li> -->
+          <!-- <li>Genre: <a href='/result/?genre={{movie.genre}}'> {{movie.genre}} </a></li> -->
         </ul>
 
       {% endfor %}

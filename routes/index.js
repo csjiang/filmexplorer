@@ -2,6 +2,8 @@
 const express = require('express');
 const router = express.Router();
 const filmBank = require('../filmBank');
+var omdb = require('omdb');
+
 const Promise = require ('bluebird');
 
 router.get('/', function (req, res) {
@@ -13,10 +15,15 @@ router.post('/search', function(req, res) {
 });
 
 router.get('/result/:name', function(req, res) {
-	filmBank.find(req.params.name).then(function(result){
-		res.render('index', {movies: result});
-		console.log(result);
-	});
+	omdb.search(req.params.name, function(err, movies) {
+	 		if (err) {
+	 			return new Error();
+	 		}
+	 		if (movies.length < 1) {
+	 			return console.log('No movies were found!');
+	 		}
+			res.render('index', {movies: movies});
+	 	});
 });
 
 //in-progress
