@@ -27,11 +27,12 @@
         <input type="submit" value="Submit" />
       </form> -->
 
-      <!-- display tweets here -->
+      <!-- display movies here -->
+
       {% for movie in movies %}
         <ul>
           <img src = {{movie.poster}}>
-          <li>Name: <a href='/result/?film={{movie.title}}'><b>{{movie.title}}</b></a></li>
+          <li>Name: <a href='/result/film/{{movie.title}}/{{movie.imdb}}'><b>{{movie.title}}</b></a></li>
           <li>Year: <a href='/result/?year={{movie.year}}'>{{movie.year}}</a></li>
 <!--           <li>ID: {{movie.ID}}</li> -->
           <!-- <li>Rating: {{movie.rated}}</li> -->

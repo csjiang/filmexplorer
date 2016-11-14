@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <div class="page-header">
+    <h1>Welcome to Film Explorer!</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+<!--       <img src="#"><br>
+      <b>Your Name</b><br>
+      100 followers -->
+    </div>
+    <div class="col-md-9">
+
+<!-- Addtl form for genre search?      <form action="/search" method="POST">
+        <label for="name_field">Search for a genre</label>
+        <input name="name" type="text" id="name_field" />
+        <input type="submit" value="Submit" />
+      </form> -->
+
+      <!-- display films here -->
+      {% if movie %}
+      <h3><b>{{movie.title}}</b></h3>
+        <ul>
+          <img src = {{movie.poster}}>
+          <li>Year: <a href='/result/?year={{movie.year}}'>{{movie.year}}</a></li>
+          <li>MPAA Rating: {{movie.rated}}</li>
+          <li> IMDB Rating: {{movie.imdb.rating}} ({{movie.imdb.votes}} votes)</li>
+          <li>Metacritic Rating: {{movie.metacritic}}/100</li>
+          <li>Runtime: {{movie.runtime}} minutes</li>
+          <li>Genre(s):
+            <ul>{% for genre in movie.genres %}
+            <li><a href='/result/?genre={{genre}}'>{{genre}}</a></li>
+            {% endfor %}
+            </ul></li>
+          <li>Director: <a href='/result/?director={{movie.director}}'>{{movie.director}}</a></li>
+          <li>Writer(s):
+            <ul>{% for writer in movie.writers %}
+            <li><a href='/result/?writer={{writer}}'>{{writer}}</a></li>
+            {% endfor %}
+            </ul></li>
+          <li>Cast:
+            <ul>{% for actor in movie.actors %}
+            <li><a href='/result/?actor={{actor}}'>{{actor}}</a></li>
+            {% endfor %}
+            </ul></li>
+          {% if movie.season != null %}
+            <li>Season: {{movie.season}}</li>
+            <li>Episode: {{movie.episode}}</li>
+          {% endif %}
+          <li>Awards: {{movie.awards.text}}</li>
+
+<!--           <li>Date released: {{movie.released}}</li> -->
+        </ul>
+
+      {% endif %}
+
+    <h3>Search for another film!</h3>
+
+    <form action="/search" method="POST">
+        <label for="name_field">Movie Name</label>
+        <input name="name" type="text" id="name_field" />
+        <input type="submit" value="Submit" />
+    </form>
+    </div>
+  </div>
+
+{% endblock %}
