@@ -29,5 +29,5 @@ app.get('/index.html', function(req, res, next) {
 });
 
 app.listen(3001, function() {
-	console.log('server listening');
+	console.log('Server listening on port 3001');
 });

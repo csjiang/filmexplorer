@@ -23,7 +23,9 @@
       {% if movie %}
       <h3><b>{{movie.title}}</b></h3>
         <ul>
+        {% if movie.poster %}
           <img src = {{movie.poster}}>
+        {% endif %}
           <li>Year: <a href='/result/?year={{movie.year}}'>{{movie.year}}</a></li>
           <li>MPAA Rating: {{movie.rated}}</li>
           <li> IMDB Rating: {{movie.imdb.rating}} ({{movie.imdb.votes}} votes)</li>
